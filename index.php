@@ -71,10 +71,10 @@ $hibak = "";
                     <h3>Kapacitás</h3>
                     <h4><?=$adat["Kapacitas"]?></h4>
                     <form method="POST">
-                       
+                    <button name="termekid" value="<?=$adat["HattertaroloID"]?>">Törlés!</button>
                     </form>
 
-                    
+                    <a href="<?=$alapUrl?>/szerkesztes.php?id=<?=$adat["HattertaroloID"]?>">megnyitás</a>
                 </div>
             <?php endforeach; ?>
         </div>
