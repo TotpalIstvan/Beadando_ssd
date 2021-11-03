@@ -1,49 +1,10 @@
 <?php
-function hattertarolok($conn) {
-        $tipusStmt = $conn->query("SELECT * FROM hattertarolok");
-        $tipusok = $tipusStmt->fetchAll(PDO::FETCH_ASSOC);
-        return $tipusok;
-    }
+require_once "fuggvenyek.php";
+$hibak = "";
 
-    function tipusok($conn) {
-        $tipusStmt = $conn->query("SELECT * FROM hattertarolo_tipusok");
-        $tipusok = $tipusStmt->fetchAll(PDO::FETCH_ASSOC);
-        return $tipusok;
-    }
-
-    function torles($conn, $id) {
-        $stmt = $conn->prepare("DELETE FROM hattertarolok 
-        WHERE HattertaroloID = ?");
-        $stmt->execute([$id]);
-    }
-
-    $conn = new PDO("mysql:host=localhost;dbname=hattertarolok;charset=utf8;", 
-    "root", "");
 
     if(isset($_POST["felvitel"])) {
-        $hibak = "";
-
-        $stmt = $conn->prepare("INSERT INTO hattertarolok 
-        (HattertaroloTipus, Kapacitas, Melyseg, Magassag, Szelesseg, Marka, Tipus) 
-        VALUES(?,?,?,?,?,?,?)");
-
-        if($_POST["hattertaroloTipus"] == 0) {
-            $hibak .= "<h3>Nem választottál ki háttértároló típust!</h3>";
-        }
-
-        if(empty($_POST["kapacitas"]) || $_POST["kapacitas"] == 0) {
-            $hibak .= "<h3>A kapacitás mező nincs megfelelően kitöltve!</h3>";
-        }
-
-        $stmt->execute([
-            $_POST["hattertaroloTipus"],
-            $_POST["kapacitas"],
-            $_POST["melyseg"],
-            $_POST["magassag"],
-            $_POST["szelesseg"],
-            $_POST["marka"],
-            $_POST["tipus"]
-        ]);
+        $hibak = felvitel($conn, $_POST);
     }
 
     if(isset($_POST["termekid"])) {
@@ -110,10 +71,10 @@ function hattertarolok($conn) {
                     <h3>Kapacitás</h3>
                     <h4><?=$adat["Kapacitas"]?></h4>
                     <form method="POST">
-                        <button name="termekid" value="<?=$adat["HattertaroloID"]?>">Törlés!</button>
+                       
                     </form>
 
-                    <a href="http://localhost/Beadandok_ssd/szerkesztes.php?id=<?=$adat["HattertaroloID"]?>">megnyitás</a>
+                    
                 </div>
             <?php endforeach; ?>
         </div>
