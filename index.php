@@ -41,24 +41,24 @@ $hibak = "";
             </select>
 
             <h3>Kapacitas</h3>
-            <input type="number" name="kapacitas" placeholder="kapacitás">
+            <input type="number" name="kapacitas" placeholder="kapacitás" class="form-control">
 
             <h3>Mélység</h3>
-            <input type="number" name="melyseg" placeholder="mélység">
+            <input type="number" name="melyseg" placeholder="mélység"  class="form-control">
 
             <h3>Magasság</h3>
-            <input type="number" name="magassag" placeholder="magasság">
+            <input type="number" name="magassag" placeholder="magasság"  class="form-control">
 
             <h3>Szélesség</h3>
-            <input type="number" name="szelesseg" placeholder="szélesség">
+            <input type="number" name="szelesseg" placeholder="szélesség"  class="form-control">
 
             <h3>Márka</h3>
-            <input type="text" name="marka" placeholder="márka">
+            <input type="text" name="marka" placeholder="márka"  class="form-control">
 
             <h3>Típus</h3>
-            <input type="text" name="tipus" placeholder="típus">
+            <input type="text" name="tipus" placeholder="típus"  class="form-control">
 
-            <button name="felvitel">Felvitel!</button>
+            <button name="felvitel" class="btn btn-outline-primary">Felvitel!</button>
         </form>
 
         <div class="grid-4">
@@ -71,10 +71,10 @@ $hibak = "";
                     <h3>Kapacitás</h3>
                     <h4><?=$adat["Kapacitas"]?></h4>
                     <form method="POST">
-                    <button name="termekid" value="<?=$adat["HattertaroloID"]?>">Törlés!</button>
+                    
                     </form>
 
-                    <a href="<?=$alapUrl?>/szerkesztes.php?id=<?=$adat["HattertaroloID"]?>">megnyitás</a>
+                   
                 </div>
             <?php endforeach; ?>
         </div>
