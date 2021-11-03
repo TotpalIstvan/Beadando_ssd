@@ -1,0 +1,21 @@
+body {
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+}
+.box {
+    background-color: #f3f3f3ef;
+    border: 1px solid #e7e7e7ef;
+    padding: 15px;
+    text-align: center;
+}
+.tartalom {
+    max-width: 1080px;
+    padding: 25px;
+    margin: auto;
+}
